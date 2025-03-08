@@ -1,38 +1,31 @@
-const fetchName = () => {
-    console.log("fetching name")
+const displayFactoid = (factoid, callback) => {
     setTimeout(() => {
-     const data = "my name is lucas.w"
-     displayName(data)
-    },2000)
-    setTimeout(() => {
-    console.log("fetching age")
-    setTimeout(() => {
-        console.log("waiting 2 seconds")
-     const data = "my age is 26"
-     displayName(data)
-    },2000)
-},4000);
-    setTimeout(() => {
-    console.log("fetching location")
-    setTimeout(() => {
-        console.log("waiting 2 seconds")
-     const data = "my location is sweden"
-     displayName(data)
-    },2000)
-},7000);
-    setTimeout(() => {
-    console.log("fetching hobbies")
-    setTimeout(() => {
-        console.log("waiting 2 seconds")
-     const data = "my big hobbies are coding and gaming"
-     displayName(data)
-    },2000)
-},10000);
-};
+      console.log(factoid);
+      callback();
+    }, 2000);
+  };
 
-const displayName = (data) => {
-    console.log(data)
-};
 
-fetchName(displayName);
-
+  const getName = (callback) => {
+    displayFactoid("my name is Lucas.W", callback);
+  };
+  
+  const getAge = (callback) => {
+    displayFactoid("I am 26 years old", callback);
+  };
+  
+  const getLocations = (callback) => {
+    displayFactoid("im from Sweden", callback);
+  };
+  
+  const getHobbies = (callback) => {
+    displayFactoid("my hobbies are coding and gaming", callback);
+  };
+  
+  getName(() => {
+    getAge(() => {
+      getLocations(() => {
+        getHobbies(() => {});
+      });
+    });
+  });
